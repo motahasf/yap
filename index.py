@@ -98,3 +98,40 @@ class Yap:
         
         return numerical_id
 
+    @staticmethod
+    def from_id(Id: str):
+
+        """Convert a numeric ID into its original sentence."""
+
+        # Validication
+        if not isinstance(Id, str):
+            raise TypeError("Give me ID first :)")
+
+        if len(Id) != 10 or not Id.isdigit():
+            raise ValueError("Invalid ID")
+
+        # Unpack ID
+        num_pa = int(Id[0:2])
+        num_fa = int(Id[2:4])
+        num_ve = int(Id[4:6])
+        num_ob = int(Id[6:8])
+        num_ta = int(Id[8:10])
+
+        # Convert numbers to words
+
+        try:
+            pa = possessive_adjectives[num_pa - 1]
+            fa = family_nouns[num_fa - 1]
+            ve = verbs[num_ve - 1]
+            ob = objects[num_ob - 1]
+            ta = time_adverbs[num_ta - 1]
+        except IndexError:
+            raise ValueError("Invalid ID")
+
+        # Wrapping words
+
+        sentence = f"{pa} {fa} {ve} {ob} {ta}."
+
+        return sentence
+
+

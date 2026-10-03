@@ -4,7 +4,7 @@ from random import choice
 
 possessive_adjectives = [
     "my", "your", "his", "her",
-    "its", "our", "your", "their"
+    "its", "our", "their"
 ]
 
 family_nouns = [
@@ -32,7 +32,7 @@ time_adverbs = [
     "today", "tomorrow", "yesterday", "now", "tonight",
     "soon", "later", "already", "still", "yet", "always",
     "usually", "often", "sometimes", "rarely",
-    "never", "early", "late", "recently", "soon"
+    "never", "early", "late", "recently"
 ]
 
 

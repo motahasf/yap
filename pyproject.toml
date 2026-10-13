@@ -1,0 +1,35 @@
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yap"
+version = "0.1.0"
+description = "Turn numeric IDs into unique, memorable phrases."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Taha Safari" }
+]
+keywords = [
+    "ids",
+    "memorable-ids",
+    "sentences",
+    "encoding",
+    "decoding",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = []
+
+[tool.setuptools]
+py-modules = ["yap"]

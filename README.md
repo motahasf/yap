@@ -1,154 +1,58 @@
-# 🗣️ What Is Yap?
+# Yap
 
-**Yap** turns boring numeric IDs into **unique, memorable sentences** with Python.
+Yap is a small Python library for turning numeric IDs into short, memorable sentences.
 
-Instead of:
+The idea is simple: instead of sharing an ID like `0106140103`, you can share a sentence that's easier to remember and type.
 
-```text
-0106140103
+## How it works
+
+Yap builds sentences from five word lists:
+
+- Possessive adjective
+- Family member
+- Verb
+- Object
+- Adverb of time
+
+Each word has a numeric index. The indexes are combined to create an ID, and the process can be reversed to get the original sentence.
+
+For example, `my grandpa plays pizza yesterday` can be represented by a numeric ID based on the positions of its words in the lists.
+
+## Installation
+
+Install the package using pip:
+
+```bash
+pip install git+https://github.com/motahasf/yap.git
 ```
 
-you get:
-
-> **"my grandpa plays pizza yesterday."**
-
-Yeah, it's a little weird.
-
-But you'll remember it. :)
-
----
-
-# Why Yap?
-
-Numeric IDs are great for computers, but not so great for humans.
-
-Yap gives you a simple way to turn them into something **human-readable and memorable**.
-
-```text
-0106140103
-      ↕
-my grandpa plays pizza yesterday.
-```
-
-No database required.
-
----
-
-# Features
-
-* 🎲 Generate random Yap sentences
-* 🔢 Convert sentences → IDs
-* 🔄 Convert IDs → sentences
-* ✅ Input validication
-* 🗄️ No database required
-
----
-
-# Usage
-
-### Generate a sentence
+## Usage
 
 ```python
 from yap import Yap
 
+# Generate a random sentence
 sentence = Yap.sentence()
-
 print(sentence)
+
+# Convert a sentence to an ID
+id_ = Yap.to_id(sentence)
+print(id_)
+
+# Convert an ID back to a sentence
+print(Yap.from_id(id_))
 ```
 
-Output:
+## Why?
 
-```text
-their uncle reads coffee tomorrow.
-```
+I wanted to experiment with a simple way to make numeric IDs easier to remember and share. Yap is the result.
 
-### Sentence → ID
+It's intentionally small and doesn't require external dependencies.
 
-```python
-Yap.to_id("my grandpa plays pizza yesterday.")
-```
+## Limitations
 
-Output:
+Yap isn't designed for passwords, secret tokens, or anything that needs to be secure. The sentences are just another representation of an ID, not encryption.
 
-```text
-0106140103
-```
+## License
 
-### ID → Sentence
-
-```python
-Yap.from_id("0106140103")
-```
-
-Output:
-
-```text
-my grandpa plays pizza yesterday.
-```
-
----
-
-# How Does It Work?
-
-Each sentence has five parts:
-
-```text
-Possessive adjective
-        +
-Family noun
-        +
-Verb
-        +
-Object
-        +
-Time adverb
-```
-
-Each word has a position in its list, which becomes a two-digit number.
-
-For example:
-
-```text
-my          → 01
-grandpa     → 06
-plays       → 14
-pizza       → 01
-yesterday   → 03
-```
-
-Result:
-
-```text
-0106140103
-```
-
----
-
-# Requirements
-
-* Python 3.x
-* No external dependencies
-
----
-
-# 🔐 Security Note
-
-Yap is **memorable, not magical.**
-
-It's not a password generator, secret key generator, or anything like that.
-
-Use it for **public, non-sensitive stuff** like posts, products, links, and demos.
-
-Basically:
-
-> If someone finds your Yap, don't panic.
-> Just don't use it to protect your bank account. :)
-
----
-
-# 🚧 Project Status
-
-Yap is still a small project, and it's just getting started.
-
-More words and features are coming :)
-
+See the LICENSE file for details.
